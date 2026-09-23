@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quadro de Vagas | Projeto de portfólio</title>
+  <meta name="description" content="Página de vagas de tecnologia com filtros por área, cidade e modalidade, feita com HTML, CSS e JavaScript puro.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <h1 class="topo__titulo">Vagas de tecnologia</h1>
+      <p class="topo__texto">Filtre por área, cidade ou modalidade e encontre a vaga que combina com você.</p>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <!-- Filtros -->
+    <aside class="filtros" aria-label="Filtros de vagas">
+      <form id="form-filtros" class="filtros__form" novalidate>
+        <div class="campo">
+          <label for="busca">Buscar por palavra-chave</label>
+          <input type="search" id="busca" name="busca" placeholder="Ex.: React, Atlas, testes">
+        </div>
+
+        <div class="campo">
+          <label for="area">Área</label>
+          <select id="area" name="area">
+            <option value="">Todas as áreas</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="cidade">Cidade</label>
+          <select id="cidade" name="cidade">
+            <option value="">Todas as cidades</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="modalidade">Modalidade</label>
+          <select id="modalidade" name="modalidade">
+            <option value="">Todas as modalidades</option>
+          </select>
+        </div>
+
+        <button type="button" id="limpar" class="botao">Limpar filtros</button>
+      </form>
+    </aside>
+
+    <!-- Resultados -->
+    <section class="resultados" aria-labelledby="titulo-resultados">
+      <h2 id="titulo-resultados" class="visualmente-oculto">Resultados</h2>
+
+      <p class="contador" id="contador" aria-live="polite">
+        <span class="contador__numero" id="contador-numero">0</span>
+        <span class="contador__texto" id="contador-texto">vagas encontradas</span>
+      </p>
+
+      <ul class="lista" id="lista-vagas"></ul>
+
+      <div class="vazio" id="vazio" hidden>
+        <p class="vazio__titulo">Nenhuma vaga com esses filtros.</p>
+        <p>Tente outra cidade ou área, ou limpe os filtros para ver todas as vagas.</p>
+        <button type="button" id="limpar-vazio" class="botao">Limpar filtros</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>As vagas e empresas desta página são fictícias e foram criadas apenas para este projeto de portfólio.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

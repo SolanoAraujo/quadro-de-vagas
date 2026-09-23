@@ -1,0 +1,263 @@
+/* ---------- Variáveis (cores, fontes) ---------- */
+:root {
+  --fundo: #f2f5f3;
+  --superficie: #ffffff;
+  --texto: #1b2a2f;
+  --texto-suave: #4a5c62;
+  --linha: #d5ddd9;
+  --destaque: #0b6e4f;
+  --destaque-escuro: #085a41;
+  --destaque-claro: #dcefe7;
+  --foco: #1a56db;
+
+  --fonte-titulo: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --fonte-texto: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+/* ---------- Topo ---------- */
+.topo {
+  background: var(--destaque);
+  color: #fff;
+  padding: 2.5rem 0 2.25rem;
+}
+
+.topo__titulo {
+  margin: 0 0 0.5rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.topo__texto {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 1.1rem;
+  color: #d9efe6;
+}
+
+/* ---------- Layout principal ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding-top: 1.75rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 820px) {
+  .layout {
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .filtros {
+    position: sticky;
+    top: 1.25rem;
+  }
+}
+
+/* ---------- Filtros ---------- */
+.filtros__form {
+  display: grid;
+  gap: 1rem;
+}
+
+.campo {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--superficie);
+  border: 1.5px solid var(--linha);
+  border-radius: 6px;
+}
+
+.campo input:hover,
+.campo select:hover {
+  border-color: var(--texto-suave);
+}
+
+.botao {
+  justify-self: start;
+  padding: 0.6rem 1.1rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--destaque-escuro);
+  background: transparent;
+  border: 1.5px solid var(--destaque);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background: var(--destaque-claro);
+}
+
+/* ---------- Contador (o destaque da página) ---------- */
+.contador {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--texto);
+}
+
+.contador__numero {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--destaque);
+  font-variant-numeric: tabular-nums;
+}
+
+.contador__texto {
+  font-size: 1.1rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- Lista de vagas ---------- */
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vaga {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.vaga__cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+}
+
+.vaga__titulo {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.vaga__data {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.vaga__empresa {
+  margin: 0.2rem 0 0;
+  color: var(--texto-suave);
+}
+
+.vaga__empresa strong {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.vaga__descricao {
+  margin: 0.6rem 0 0;
+  max-width: 68ch;
+}
+
+.vaga__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  padding: 0.15rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  background: var(--superficie);
+}
+
+.tag--area {
+  color: var(--destaque-escuro);
+  background: var(--destaque-claro);
+  border-color: var(--destaque-claro);
+}
+
+/* ---------- Estado vazio ---------- */
+.vazio {
+  padding: 2rem 0;
+}
+
+.vazio[hidden] { display: none; }
+
+.vazio__titulo {
+  margin: 0 0 0.25rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 1.35rem;
+}
+
+.vazio p { margin-top: 0; }
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  padding: 1.25rem 0 2rem;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--linha);
+}
+
+.rodape p { margin: 0; }
