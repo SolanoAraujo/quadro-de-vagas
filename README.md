@@ -2,7 +2,7 @@
 
 Página de vagas de tecnologia com filtros, feita com **HTML, CSS e JavaScript puro** (sem frameworks ou bibliotecas).
 
-🔗 **Demo:** https://SEU-USUARIO.github.io/quadro-de-vagas/
+🔗 **Demo:** https://solanoaraujo.github.io/quadro-de-vagas/
 
 > As vagas e empresas são fictícias e foram criadas apenas para este projeto de portfólio.
 
